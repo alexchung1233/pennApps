@@ -1,0 +1,175 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+    border-right: 1px solid #bbb
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+#about-mid{
+  background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://www.wm.edu/about/visiting/campusmap/location/photos/171.jpg");
+  background-size: 1900px 1200px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width:1934px;
+  height:500px;
+  margin: -30px;
+  padding:0px;
+  text-shadow: 2px 2px #000000;
+}
+
+.h1{
+  font-size: 40px;
+  text-align: center;
+
+}
+.title{
+  text-align: center;
+  font-size: 70px;
+  position: relative;
+  left:-300px
+  top:-150px
+
+}
+h1{
+  color: white;
+    font-family: "Arial"
+}
+
+
+#about-lower{
+  width:1905px;
+  height:1000px;
+  background: #004d00;
+  margin: -20px;
+  padding:2px
+
+}
+
+#sadler{
+  background-image: url("https://www.wm.edu/about/visiting/campusmap/location/photos/4.jpg");
+  background-size: 255px 230px;
+  position:absolute;
+  left:525px;
+}
+
+#commons{
+  background-image: url("https://www.wm.edu/about/visiting/campusmap/location/photos/48.jpg");
+  background-size: 350px 350px;
+  position:absolute;
+  left:790px;
+
+}
+
+#marketplace{
+  background-image: url("https://www.wm.edu/about/visiting/campusmap/location/photos/198.jpg");
+  background-size: 350px 275px;
+  position:absolute;
+  left:1100px;
+}
+.main-buttons{
+  background-color:black;
+  border:none;
+  color:white;
+  padding: 80px 90px;
+  font-size: 25px;
+
+  text-shadow: 4px 4px #000000;
+  display: inline-block;
+  background-repeat: no-repeat;
+
+}
+
+.main-buttons:hover{
+  background-color:white;
+
+}
+
+.top-header{
+  font-size: 30px;
+  text-align: :center;
+}
+
+#top-container{
+  position:absolute;
+  margin: 0px auto;
+  width= 65px;
+
+}
+
+#food-container{
+  position:absolute;
+  font-size:40px;
+  left:630px;
+  top:700px;
+  font-family: "Arial";
+
+}
+
+#food-items{
+  border: 0px;
+  padding:10px 60px;
+  background-color: white;
+  font-size: 20px;
+  border-collapse:separate;
+border-spacing:15px;
+
+}
+
+#send-button{
+  font-size: 20px;
+  padding: 5px 75px;
+  background-color: white;
+  border: 4px;
+  margin: 0px;
+  position: absolute;
+  top:0px;
+}
+
+#send-button:hover{
+  background-color:orange;
+
+}
+
+#inputElt{
+  padding: 15px 60px;
+  font-size: 20px;
+
+}
+
+.checked {
+  color:orange;
+
+}
+
+.food-dropdown{
+  border = 0px;
+  background-color: white;
+  padding: 20px 50px;
+  font-size: 20px;
+  min-width =160px
+}
+
+#dropdown{
+  position: absolute;
+  top:-70px;
+  right:47px;
+}

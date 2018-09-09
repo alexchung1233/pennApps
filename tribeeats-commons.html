@@ -1,0 +1,135 @@
+
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <title>
+    About
+    </title>
+  </head>
+  <div id = "taskbar">
+    <ul>
+      <li><a href="/home/chrx/Desktop/Hackathon/pennApps/tribeeats-about.html">Home</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </div>
+    <body>
+  <div id = "about-mid">
+    <h1 class = "title">
+    Tribe Eats
+  </h1>
+  </div>
+
+  </body>
+  <div id  = "about-lower">
+    <h1 class = "h1">
+      Commons Hall Dining
+    </h1>
+    <div id = "food-container">
+      <div id = "dropdown">
+      <select class = "food-dropdown" id = "days"onchange = "dropdownDaySelect()">
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wedsnday">Wednsday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+        <option value="Saturday">Saturday</option>
+        <option value="Sunday">Sunday</option>
+      </select>
+      <select class = "food-dropdown" id = "tod" onchange="dropdownToDSelect()">
+        <option value="Breakfast">Breakfast</option>
+        <option value="Lunch">Lunch</option>
+        <option value="Afternoon Snack">Afternoon Snack</option>
+        <option value="Dinner">Dinner</option>
+      </select>
+    </div>
+      <table id="food-items" border="1">
+        <tr>
+          <th id="itemName">Food  ... Rating</th>
+          <input id="inputElt" type="text"/>
+          <button onclick="sendMessage()" id = "send-button">Rate food</button>
+
+        </tr>
+      </table>
+    <div>
+
+  <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+  <script>
+
+      var config = {
+      apiKey: "AIzaSyDLtuQ-7TmjXHfdfEiT_kDiBVI8-M6SCpQ",
+      authDomain: "wmdine-web.firebaseapp.com",
+      databaseURL: "https://wmdine-web.firebaseio.com",
+      projectId: "wmdine-web",
+      storageBucket: "wmdine-web.appspot.com",
+      messagingSenderId: "18525717812"
+      };
+      firebase.initializeApp(config);
+
+
+      var ref = firebase.database().ref('Friday/afternoon snack');
+      ref.on('child_added', gotData, errData)
+      var array = []
+      var curr_day = 'Monday'
+      var curr_tod = 'Breakfast'
+
+      function dropdownToDSelect(){
+        curr_tod = document.getElementById("tod").value;
+        console.log(curr_tod)
+
+      }
+      function dropdownDaySelect(){
+        curr_day = document.getElementById("days").value;
+    console.log(curr_day)
+      }
+
+      function gotData(data){
+        var itemObj = data.val()
+        var itemCont = document.getElementById('food-items')
+        var newItem = document.createElement('tr')
+        var itemName = itemObj.item
+        var itemRank = itemObj.rating
+        if (itemRank == null){
+          itemRank = ''
+      }
+      var itemTime = "Afternoon Snack"
+      var itemDate = "Friday"
+      newItem.append(itemName+ " ");
+      for(var i = 0; i<itemRank;i++){
+        var star = document.createElement('span');
+        star.className = "fa fa-star checked";
+        newItem.append(star)
+      }
+      for(var i = 0; i<10-itemRank;i++){
+        var star = document.createElement('span');
+        star.className = "fa fa-star";
+        newItem.append(star)
+      }
+      itemCont.append(newItem)
+
+      }
+
+      function errData(er){
+        console.logg("error");
+        console.log(err);
+      }
+      function sendMessage(){
+      var inputElt = document.getElementById('inputElt')
+        var input = inputElt.value
+        console.log(input)
+        inpArr = input.split(':')
+        var item = inpArr[0]
+        console.log(item)
+        var rating = inpArr[1]
+        console.log(rating)
+        var address = '/' + item
+        db.ref('Friday/afternoon snack/7').update({
+          rating: rating
+        })
+      }
+
+
+  </script>
+</html>
